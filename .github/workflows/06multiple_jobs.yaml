@@ -32,12 +32,7 @@ jobs:
         - name: Upload JAR artifact
           uses: actions/upload-artifact@v4
           with:
-            name: application.jar 
-            path: build/libs/*SNAPSHOT.jar
-        - name: Upload JAR artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: application.jar 
+            name: massai_mara_park-0.0.1-SNAPSHOT.jar 
             path: build/libs/*SNAPSHOT.jar
 
   deploy:
@@ -48,15 +43,7 @@ jobs:
         - name: download JAR artifact
           uses: actions/download-artifact@v4
           with:
-            name: application.jar
-        
-        - name: check downloaded files
-          run: ls -al
-
-        - name: download JAR artifact
-          uses: actions/download-artifact@v4
-          with:
-            name: application.jar
+            name: massai_mara_park-0.0.1-SNAPSHOT.jar
         
         - name: check downloaded files
           run: ls -al
