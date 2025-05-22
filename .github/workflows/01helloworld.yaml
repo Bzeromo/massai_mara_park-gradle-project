@@ -9,3 +9,7 @@ jobs:
     steps:
         - name: print hello message
           run: echo "Hello, Github Actions!"
+
+        - name: print GHA run count
+          run: |
+            echo "count: ${{ github.run_number }}"
