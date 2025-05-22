@@ -25,4 +25,21 @@ jobs:
           if: always()
           run: docker logout
 
-        
+        - name: run docker container
+          run: |
+            docker run -d --name maratang -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/massai_mara:v1
+            sleep 20
+            docker ps
+            docker logs maratang
+
+        - name: run automated test #1
+          run: |
+            curl http://localhost:8080 || exit 1
+
+        - name: run automated test #2
+          run: |
+            curl http://localhost:8080/images || exit 1
+
+        - name: run automated test #3
+          run: |
+            curl http://localhost:8080/animal || exit 1
