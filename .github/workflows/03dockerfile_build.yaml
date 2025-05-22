@@ -1,0 +1,46 @@
+name: 마사이 마라 공원 dockerfile build
+
+on:
+  workflow_dispatch
+
+jobs:
+  dockerfile_build:
+    runs-on: ubuntu-22.04
+    steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Setup docker buildx
+          uses: docker/setup-buildx-action@v3
+        
+        - name: Build Docker image
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            file: ./Dockerfile
+            push: false
+            load: true
+            tags: massai_mara:v1
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
+
+        - name: run docker container
+          run: |
+            docker run -d --name maratang -p 8080:8080 massai_mara:v1
+            sleep 20
+            docker ps
+            docker logs maratang
+
+        - name: run automated test #1
+          run: |
+            curl http://localhost:8080 || exit 1
+
+        - name: run automated test #2
+          run: |
+            curl http://localhost:8080/images || exit 1
+
+        - name: run automated test #3
+          run: |
+            curl http://localhost:8080/animal || exit 1
+
+        
