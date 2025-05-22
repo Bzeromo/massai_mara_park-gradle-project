@@ -34,12 +34,25 @@ jobs:
           with:
             name: application.jar 
             path: build/libs/*SNAPSHOT.jar
+        - name: Upload JAR artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: application.jar 
+            path: build/libs/*SNAPSHOT.jar
 
   deploy:
     name: deploy
     needs: build
     runs-on: ubuntu-22.04
     steps:
+        - name: download JAR artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: application.jar
+        
+        - name: check downloaded files
+          run: ls -al
+
         - name: download JAR artifact
           uses: actions/download-artifact@v4
           with:
