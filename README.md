@@ -3,3 +3,4 @@
 + spring boot gradle project
 
 [![Hello, Bzeromo?](https://github.com/Bzeromo/massai_mara_park-gradle-project/actions/workflows/01helloworld.yaml/badge.svg)](https://github.com/Bzeromo/massai_mara_park-gradle-project/actions/workflows/01helloworld.yaml)
+[![마사이 마라 공원 gradle build](https://github.com/Bzeromo/massai_mara_park-gradle-project/actions/workflows/02gradle_build.yaml/badge.svg)](https://github.com/Bzeromo/massai_mara_park-gradle-project/actions/workflows/02gradle_build.yaml)
