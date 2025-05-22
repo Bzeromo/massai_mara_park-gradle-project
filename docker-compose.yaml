@@ -5,5 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: massai_mara:v3
+    container_name: maratang_app
     ports:
-      - "8899:8080"
+      - "8080:8080"
