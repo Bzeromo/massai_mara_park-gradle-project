@@ -1,4 +1,4 @@
-name: Test EC2 Connection Wish GHA
+name: Test EC2 Connection With GHA
 
 on:
     workflow_dispatch
@@ -41,13 +41,13 @@ jobs:
 
             - name: upload README.md via SCP
               run: |
-                echo "Hiiiii" > README.md 
+                echo "Hiiiii" > README.md
 
                 scp -i ~/.ssh/ec2_key \
                 -o "StrictHostKeyChecking=no" \
                 -o "UserKnownHostsFile=/dev/null" \
                 -P 22 README.md \
-                ${{ env.EC2_USERNAME }}@${{ env.EC2_HOSTNAME }}~/
+                ${{ env.EC2_USERNAME }}@${{ env.EC2_HOSTNAME }}:~/
                 
             - name: cleanup private key
               if: always()
