@@ -108,7 +108,7 @@ jobs:
             port: 22
             script: |
               docker compose -f ./compose-multijobs.yaml up -d
-              sleep 10
+              sleep 20
 
         - name: run automated test #1
           run: |
