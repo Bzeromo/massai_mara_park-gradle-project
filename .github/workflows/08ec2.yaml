@@ -20,7 +20,7 @@ jobs:
 
             - name: test SSH connect to EC2
               env: 
-                HOSTNAME: 3.39.187.87
+                HOSTNAME: "3.39.187.87"
                 USER_NAME: ubuntu
               run: |
                 echo "SSH 연결 테스트 시작"
@@ -32,7 +32,7 @@ jobs:
 
                     echo "현재사용자:? $(whoami)"
                     echo "호스트명: $(hostname)"
-                    
+
                  '
 
                 echo "SSH 연결 테스트 종료"
