@@ -28,11 +28,13 @@ jobs:
                 ssh -vvv -o StrictHostKeyChecking=no \
                  -o "UserKnownHostsFile=/dev/null" \
                  -i ~/.ssh/ec2_key -p 22 \
-                 ${USER_NAME}@${HOSTNAME} '
+                 ubuntu@3.39.187.87 '
 
                     echo "현재사용자:? $(whoami)"
                     echo "호스트명: $(hostname)"
-
+                    echo "현재시간: $(date)"
+                    echo "메모리 사용량"
+                    free -h
                  '
 
                 echo "SSH 연결 테스트 종료"
